@@ -14,7 +14,26 @@ import type {
   Role,
 } from './types';
 
-const BASE = (process.env.NEXT_PUBLIC_API_BASE as string | undefined) ?? '/api';
+// Backend base URL — same approach as the farmer/platform panels, adapted to
+// Next. Two ways to point at the backend:
+//   1. NEXT_PUBLIC_API_TARGET = backend origin → direct calls (baked at build).
+//   2. leave it unset → '/api', which next.config.mjs rewrites to BACKEND_ORIGIN
+//      server-side (works in dev AND prod, same-origin, no CORS).
+// Normalized so a trailing slash or a stray `/api` suffix doesn't break the path.
+function resolveBase(): string {
+  let base =
+    (process.env.NEXT_PUBLIC_API_TARGET as string | undefined)?.trim() ||
+    (process.env.NEXT_PUBLIC_API_BASE as string | undefined)?.trim() ||
+    '/api';
+  base = base.replace(/\/+$/, ''); // drop trailing slash(es)
+  // For an absolute backend origin, routes live at the root — drop a `/api` suffix.
+  if (/^https?:\/\//i.test(base)) {
+    base = base.replace(/\/api$/, '');
+  }
+  return base;
+}
+
+const BASE = resolveBase();
 
 const TOKEN_KEY = 'canopy.org.token';
 

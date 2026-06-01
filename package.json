@@ -2,11 +2,11 @@
   "name": "canopy-organization",
   "version": "0.1.0",
   "private": true,
-  "description": "Canopy — Organization panel. Public marketing site (SSR) + buyer app (CSR): browse the marketplace, buy verified carbon credits, retire them, download certificates.",
+  "description": "Canopy \u2014 Organization panel. Public marketing site (SSR) + buyer app (CSR): browse the marketplace, buy verified carbon credits, retire them, download certificates.",
   "scripts": {
-    "dev": "next dev -p 5175",
-    "build": "next build",
-    "start": "next start -p 5175",
+    "dev": "node init && next dev -p 5175",
+    "build": "node init && next build",
+    "start": "node init && next start -p 5175",
     "typecheck": "tsc --noEmit",
     "lint": "next lint"
   },
