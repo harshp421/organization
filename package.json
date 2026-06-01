@@ -1,0 +1,27 @@
+{
+  "name": "canopy-organization",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Canopy — Organization panel. Public marketing site (SSR) + buyer app (CSR): browse the marketplace, buy verified carbon credits, retire them, download certificates.",
+  "scripts": {
+    "dev": "next dev -p 5175",
+    "build": "next build",
+    "start": "next start -p 5175",
+    "typecheck": "tsc --noEmit",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.10",
+    "@types/react": "^19.0.7",
+    "@types/react-dom": "^19.0.3",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2"
+  }
+}
